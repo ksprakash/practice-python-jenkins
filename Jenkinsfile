@@ -1,4 +1,5 @@
 node {
+
     stage("Checkout"){
         checkout([
         $class: 'GitSCM',
@@ -14,7 +15,18 @@ node {
     stage("Build"){
         def tagname = currentBuild.number
         def image = docker.build('vijayasurya/python:v'+tagname)
-    
+        stash 'name: savedfile, includes: test_uppercase.py'
+    }
+    stage('UnitTests'){
+
+        def testimage = docker.image('python:latest'){
+            testimage.inside{
+                unstash "savedfile"
+                sh 'cat test_uppercase.py'
+                sh "python test_uppercase.py "
+            }
+        }
+
     }
     stage("Publish"){
         def tagname = currentBuild.number
