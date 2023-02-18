@@ -22,5 +22,5 @@ node {
         image.push('v'+tagname)
         }
         }
-    }
+    
 }
