@@ -18,8 +18,8 @@ node {
     }
     stage("Publish"){
         docker.withRegistry('https://registry-1.docker.io','docker-credentials'){
-        image.push("latest")
-        image.push('v'+tagname)
+        image.push()
+        image.push('latest')
         }
         }
     
