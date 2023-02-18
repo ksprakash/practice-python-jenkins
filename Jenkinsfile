@@ -15,7 +15,7 @@ node {
     stage("Build"){
         def tagname = currentBuild.number
         def image = docker.build('vijayasurya/python:v'+tagname)
-        stash 'name: savedfile, includes: test_uppercase.py'
+        stash name: "savedfile", includes: "test_uppercase.py" 
     }
     stage('UnitTests'){
 
