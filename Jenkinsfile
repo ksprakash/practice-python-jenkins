@@ -19,13 +19,13 @@ node {
     }
     stage('UnitTests'){
 
-        def testimage = docker.image('python:latest'){
+        def testimage = docker.image('python:latest')
             testimage.inside{
                 unstash "savedfile"
                 sh 'cat test_uppercase.py'
                 sh "python test_uppercase.py "
             }
-        }
+        
 
     }
     stage("Publish"){
