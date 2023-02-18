@@ -19,7 +19,7 @@ node {
     stage("Publish"){
         docker.withRegistry('https://registry-1.docker.io','docker-credentials'){
         image.push()
-        image.push('lastest')
+        image.push('latest')
         }
         }
     
