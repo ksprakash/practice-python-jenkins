@@ -16,7 +16,8 @@ node {
         def image = docker.build('vijayasurya/python:v'+tagname)
     
     }
-    stage("Publish"){
+    stage("Build and Publish"){
+        def image = docker.build('vijayasurya/python:v'+tagname)
         docker.withRegistry('https://registry-1.docker.io','docker-credentials'){
         image.push()
         image.push('latest')
