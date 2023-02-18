@@ -12,8 +12,8 @@ node {
     }
 
     stage("Build"){
-
-        def image = docker.build('vijayasurya/python:v${env.BUILD_NUMBER}')
+        def tagname = currentBuild.number
+        def image = docker.build('vijayasurya/python:v'+tagname)
     
     }
 }
