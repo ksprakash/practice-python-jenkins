@@ -3,7 +3,7 @@ node {
     stage("Checkout"){
         checkout([
         $class: 'GitSCM',
-        branches: [["name":"origin/release-1.0"]],
+        branches: scm.branches,
         doGenerateSubmoduleConfigurations: scm.doGenerateSubmoduleConfigurations,
         extensions: scm.extensions,
         userRemoteConfigs: [["url": "https://github.com/ksprakash/practice-python-jenkins"]],
