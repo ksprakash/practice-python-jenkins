@@ -1,5 +1,5 @@
 FROM python
-LABEL Name=training Author=Softglacier Project=training
+LABEL Name=learning Author=Author Project=training
 RUN  apt update -y
 WORKDIR /data
 COPY .  .
